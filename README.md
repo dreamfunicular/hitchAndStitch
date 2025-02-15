@@ -16,6 +16,13 @@ The active pardner will present a transfer offer QR code, and let the recipient 
 The same hitchin may come back your way after you trade them away--stay on the lookout!
 Even when you're not *active* with a hitchin, you'll still be able to see their status: you've built a little relationship! 
 
+## Tech Info
+Please use pnpm for package management; it's a little more full-featured, efficient, and comfortable. Once you start using pnpm, DO NOT use npm again! (Eat kosher).
+Try to keep all packages as updated as possible. This includes tailwindcss v4.
+Use prettier for formatting (there's already a .prettierignore file to exempt .md files from this requirement--add anything else there if you need).
+
+We're using React, Next.js, tailwindcss, and PostgreSQL, all deployed on the Vercel platform with a free .tech domain.
+
 ## Todo (MVP)
 Authentication/account                          Anna
 Basic hitchin generation (limited procgen)
