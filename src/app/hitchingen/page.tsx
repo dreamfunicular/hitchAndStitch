@@ -4,7 +4,7 @@ function SeedField() {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.stopPropagation();
-    
+    console.log(e.target.value);
   }
 
   return (
