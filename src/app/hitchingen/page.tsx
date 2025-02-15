@@ -4,7 +4,7 @@ import { useState } from "react";
 
 function SeedTester() {
 
-  const [text, setText] = useState("");
+  const [text, setText] = useState(""); // handle seed as a string here because floats 😭
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.stopPropagation();
@@ -22,16 +22,20 @@ function SeedTester() {
 
 function HitchinTraitsDump({seed}: {seed: string}) {
   
+  const traits = [
+    <TraitRow name={"Literally just the seed"} stringValue={seed}></TraitRow>
+  ]
+
   return (
     <table>
-      <tr></tr>
+      {traits}
     </table>
   )
 }
 
 function TraitRow({name, stringValue}: {name: string, stringValue: string}) {
   return (
-    <tr>
+    <tr key={name}>
       <td>{name}:</td>
       <td>{stringValue}</td>
     </tr>

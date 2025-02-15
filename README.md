@@ -41,6 +41,7 @@ Hitchin transfer (QR codes)
 **Hitchin**		// Tracks all info about a hitchin
 - id			number
 - name			string 		// Stores the name of the Hitchin, which is displayed
+- seed          number      // PRNG seed for procgen; all procgen traits/personality derive from this. Does NOT need to be versioned for forward compatibility: traits always generate in a stable order with new ones added being strictly later and not affecting prior PRNG state. (Refinements of existing traits... should be easy to do in principle, and planning ahead for making that EXTRA elegant is. kinda scope creep.)
 - exp			number		// Gains experience with interactions, time, and transfers.
 - activeRelationship	Relationship	// Tracks the relationship with the Hitchin's current pardner
 - inactiveRelationships	Relationship[]	// Contains all the pardner that the Hitchin has learned from
