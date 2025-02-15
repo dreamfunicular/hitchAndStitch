@@ -17,7 +17,7 @@ The same hitchin may come back your way after you trade them away--stay on the l
 Even when you're not *active* with a hitchin, you'll still be able to see their status: you've built a little relationship! 
 
 ## Todo (MVP)
-Authentication/account
+Authentication/account                          Anna
 Basic hitchin generation (limited procgen)
 Hitchin transfer (QR codes)
 
