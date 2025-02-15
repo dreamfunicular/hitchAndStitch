@@ -1,9 +1,15 @@
 'use client';
 
 function SeedField() {
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    e.stopPropagation();
+    
+  }
+
   return (
     <span>
-      Seed: <input type="text" onChange={()=>alert("aaaaa")}></input>
+      Seed: <input type="text" onChange={handleChange}></input>
     </span>
   )
 }
