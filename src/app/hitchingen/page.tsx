@@ -1,11 +1,9 @@
 'use client';
 
-import Image from "next/image";
-
 function SeedField() {
   return (
     <span>
-      Seed: <input type="text" onChange={_=>alert("aaaaa")}></input>
+      Seed: <input type="text" onChange={()=>alert("aaaaa")}></input>
     </span>
   )
 }
