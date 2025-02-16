@@ -68,11 +68,11 @@ export async function createRelationship(newRelationship: Relationship) {
     try {
         const newPardnerID = newRelationship.pardnerID;
         const newHitchinID = newRelationship.hitchinID;
-        await sql`INSERT INTO relationship (active, pardnerid, hitchinid)
-        VALUES (${true}, ${newPardnerID}, ${newHitchinID})`;
         await sql`UPDATE relationship
         SET active = ${false}
         WHERE pardnerid = ${newPardnerID}`;
+        await sql`INSERT INTO relationship (active, pardnerid, hitchinid)
+        VALUES (${true}, ${newPardnerID}, ${newHitchinID})`;
     } catch (error) {
         console.error('Database Error:', error);
         throw new Error('Failed to add data.');
