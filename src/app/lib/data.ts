@@ -20,7 +20,7 @@ export async function fetchPardner() {
 
 export async function fetchHitchin() {
     try {
-      const data = await sql<Hitchin[]>`SELECT * FROM hitichin`;
+      const data = await sql<Hitchin[]>`SELECT * FROM hitchin`;
       return data;
     } catch (error) {
       console.error('Database Error:', error);
