@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
-import { Pardner, Hitchin, Target, Relationship } from "@/app/lib/definitions";
+import { Pardner, Hitchin, Relationship } from "@/app/lib/definitions";
 import { redirect } from "next/navigation";
-import { fetchPardner, newPardner } from "@/app/lib/data";
+import { fetchPardner } from "@/app/lib/data";
 
 var activePardner: Pardner;
 

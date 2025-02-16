@@ -5,6 +5,7 @@ export type Pardner = {
     major: number;
     currentRelationship: number;
     pastRelationshipIDs: number[];
+    authtoken: string;
     };
 
 export type Hitchin = {
