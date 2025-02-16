@@ -38,7 +38,7 @@ export default function LoginForm() {
       console.log("Worked!");
       document.cookie = "authToken=" + data.authToken;
 
-      redirect("/");
+      redirect("/dashboard");
     } else {
       console.log("didn't work :(");
       setWarningText("That username or password isn't right.");

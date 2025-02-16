@@ -10,7 +10,7 @@ export type Pardner = {
   major: Majors;
   activeRelationship: Relationship;
   inactiveRelationships: Relationship[];
-  authToken: string; //this is terrible and unsafe. oh well!
+  authtoken: string; //this is terrible and unsafe. oh well!
 };
 
 export type Hitchin = {

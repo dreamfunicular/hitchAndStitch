@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { Pardner } from "@/app/lib/definitions";
 import "@/app/lib/data";
 import { fetchPardner, pushAuthToken } from "@/app/lib/data";
 import { cookies } from "next/headers";
