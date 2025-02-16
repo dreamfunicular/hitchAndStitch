@@ -1,9 +1,39 @@
 import Image from "next/image";
-import { fetchPardner } from '@/app/lib/data';
+import { fetchPardner, createPardner, createRelationship, createHitchin } from '@/app/lib/data';
+import { Pardner, Hitchin, Relationship } from "@/app/lib/definitions";
+
+function buttonHandle() {
+
+};
 
 export default async function Home() {
-  const pardner = await fetchPardner();
-  pardner[0].username = "Test200";
+
+  const testPardner: Pardner = {
+    id : 0,
+    username : "createTest",
+    password : "123",
+    major : 0,
+    currentRelationship : 0,
+    pastRelationshipIDs : [0]};
+    createPardner(testPardner);
+
+  const testHitchin: Hitchin = {
+    id : 0,
+    name : "createTest",
+    exp : 0,
+    target : 0,
+    currentRelationshipID : 0,
+    pastRelationshipIDs : [0],
+    moveOutTime : new Date()};
+    createHitchin(testHitchin);
+
+  const testRelationship : Relationship = {
+    id : 0,
+    active : true,
+    hitchinID: 28,
+    pardnerID: 1,};
+    createRelationship(testRelationship);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -15,11 +45,10 @@ export default async function Home() {
           height={38}
           priority
         />
-        <div>{pardner[0].username}</div>
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded-sm font-semibold">
+            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
               src/app/page.tsx
             </code>
             .
@@ -28,11 +57,8 @@ export default async function Home() {
         </ol>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
+          <button
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
           >
             <Image
               className="dark:invert"
@@ -42,7 +68,7 @@ export default async function Home() {
               height={20}
             />
             Deploy now
-          </a>
+          </button>
           <a
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"

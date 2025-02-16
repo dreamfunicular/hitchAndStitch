@@ -1,36 +1,25 @@
-export enum Majors {
-    A,
-    B,
-};
-
 export type Pardner = {
     id: number;
     username: string;
     password: string;
-    major: Majors;
-    activeRelationship: Relationship;
-    inactiveRelationships: Relationship[];
+    major: number;
+    currentRelationship: number;
+    pastRelationshipIDs: number[];
     };
 
 export type Hitchin = {
     id: number;
     name: string;
     exp: number;
-    activeRelationship: Relationship;
-    inactiveRelationships: Relationship[];
+    currentRelationshipID: number;
+    pastRelationshipIDs: number[];
     moveOutTime: Date;
-    targetArchetype: Target;
-    };
-
-
-export type Target = {
-    id: number;
-    major: Majors;
+    target: number;
     };
 
 export type Relationship = {
     id: number;
-    pardner: Pardner;
-    hitchin: Hitchin;
+    pardnerID: number;
+    hitchinID: number;
     active: boolean;
 }
