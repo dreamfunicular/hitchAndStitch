@@ -18,6 +18,7 @@ export default function LoginForm() {
 
     if (username == "" || password == "") {
       setWarningText("Please submit a username and password.");
+      return 0;
     }
 
     const res = await fetch("/api/login", {

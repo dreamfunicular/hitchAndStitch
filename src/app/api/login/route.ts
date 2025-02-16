@@ -1,8 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 import { Pardner } from "@/app/lib/definitions";
 import "@/app/lib/data";
-import { fetchPardner } from "@/app/lib/data";
+import { fetchPardner, pushAuthToken } from "@/app/lib/data";
 import { cookies } from "next/headers";
+import "@/app/lib/data.ts";
 
 interface Inc {
   username: string;
@@ -25,11 +26,13 @@ export async function POST(req: NextRequest) {
 
   let p = await fetchPardner();
   let matchFound = false;
+  let userId: number = 0;
 
   for (var i = 0; i < p.length; i++) {
     if (p[i].username == submittedUsername) {
       if (p[i].password == submittedPassword) {
         matchFound = true;
+        userId = p[i].id;
       }
 
       break;
@@ -39,6 +42,7 @@ export async function POST(req: NextRequest) {
   if (matchFound) {
     let authToken = crypto.randomUUID();
     console.log(authToken);
+    pushAuthToken(authToken, userId);
     return NextResponse.json({ status: 200, authToken: authToken });
   } else {
     return NextResponse.json({ status: 403 });

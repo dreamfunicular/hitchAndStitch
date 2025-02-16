@@ -1,36 +1,36 @@
 export enum Majors {
-    A,
-    B,
-};
+  A,
+  B,
+}
 
 export type Pardner = {
-    id: number;
-    username: string;
-    password: string;
-    major: Majors;
-    activeRelationship: Relationship;
-    inactiveRelationships: Relationship[];
-    };
+  id: number;
+  username: string;
+  password: string;
+  major: Majors;
+  activeRelationship: Relationship;
+  inactiveRelationships: Relationship[];
+  authToken: string; //this is terrible and unsafe. oh well!
+};
 
 export type Hitchin = {
-    id: number;
-    name: string;
-    exp: number;
-    activeRelationship: Relationship;
-    inactiveRelationships: Relationship[];
-    moveOutTime: Date;
-    targetArchetype: Target;
-    };
-
+  id: number;
+  name: string;
+  exp: number;
+  activeRelationship: Relationship;
+  inactiveRelationships: Relationship[];
+  moveOutTime: Date;
+  targetArchetype: Target;
+};
 
 export type Target = {
-    id: number;
-    major: Majors;
-    };
+  id: number;
+  major: Majors;
+};
 
 export type Relationship = {
-    id: number;
-    pardner: Pardner;
-    hitchin: Hitchin;
-    active: boolean;
-}
+  id: number;
+  pardner: Pardner;
+  hitchin: Hitchin;
+  active: boolean;
+};
