@@ -65,6 +65,7 @@ export async function createHitchin(newHitchin: Hitchin) {
 }
 
 export async function createRelationship(newRelationship: Relationship) {
+    'use server';
     try {
         const newPardnerID = newRelationship.pardnerID;
         const newHitchinID = newRelationship.hitchinID;

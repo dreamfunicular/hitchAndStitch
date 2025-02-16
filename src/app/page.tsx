@@ -1,10 +1,7 @@
 import Image from "next/image";
+import QRCode from "react-qr-code";
 import { fetchPardner, createPardner, createRelationship, createHitchin } from '@/app/lib/data';
 import { Pardner, Hitchin, Relationship } from "@/app/lib/definitions";
-
-function buttonHandle() {
-
-};
 
 export default async function Home() {
 
@@ -15,7 +12,7 @@ export default async function Home() {
     major : 0,
     currentRelationship : 0,
     pastRelationshipIDs : [0]};
-    createPardner(testPardner);
+    //createPardner(testPardner);
 
   const testHitchin: Hitchin = {
     id : 0,
@@ -25,26 +22,19 @@ export default async function Home() {
     currentRelationshipID : 0,
     pastRelationshipIDs : [0],
     moveOutTime : new Date()};
-    createHitchin(testHitchin);
+    //createHitchin(testHitchin);
 
   const testRelationship : Relationship = {
     id : 0,
     active : true,
     hitchinID: 28,
     pardnerID: 1,};
-    createRelationship(testRelationship);
+    //createRelationship(testRelationship);
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
+      <QRCode value={"http://172.20.188.222:3000/transferHitchin/" + 2}/>
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
           <li className="mb-2">
             Get started by editing{" "}
