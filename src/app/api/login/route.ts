@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
   if (matchFound) {
     let authToken = crypto.randomUUID();
     console.log(authToken);
-    pushAuthToken(authToken, userId);
+    await pushAuthToken(authToken, userId);
     return NextResponse.json({ status: 200, authToken: authToken });
   } else {
     return NextResponse.json({ status: 403 });
