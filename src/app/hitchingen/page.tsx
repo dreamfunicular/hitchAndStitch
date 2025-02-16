@@ -23,7 +23,7 @@ function SeedTester() {
 function HitchinTraitsDump({seed}: {seed: string}) {
   
   const traits = [
-    <TraitRow name={"Literally just the seed"} stringValue={seed}></TraitRow>
+    <TraitRow key={"Literally just the seed"} stringValue={seed}></TraitRow>
   ]
 
   return (
@@ -33,10 +33,10 @@ function HitchinTraitsDump({seed}: {seed: string}) {
   )
 }
 
-function TraitRow({name, stringValue}: {name: string, stringValue: string}) {
+function TraitRow({key, stringValue}: {key: string, stringValue: string}) {
   return (
-    <tr key={name}>
-      <td>{name}:</td>
+    <tr>
+      <td>{key}:</td>
       <td>{stringValue}</td>
     </tr>
   )
