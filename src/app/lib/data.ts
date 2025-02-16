@@ -27,6 +27,12 @@ export async function pushAuthToken(authToken: string, id: number) {
   pool.query(`UPDATE pardner SET authtoken='${authToken}' WHERE id=${id}`);
 }
 
+export async function newPardner(p: Pardner) {
+  pool.query(
+    `INSERT INTO pardner (username, password, authtoken) VALUES ('${p.username}', '${p.password}', '${p.authtoken}');`
+  );
+}
+
 export async function fetchHitchin() {
   try {
     const data = await sql<Hitchin[]>`SELECT * FROM hitichin`;

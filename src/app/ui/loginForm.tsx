@@ -3,7 +3,6 @@
 // if wronggoing, blame anna!
 
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { FormEvent } from "react";
 import { useState } from "react";
 import { redirect } from "next/navigation";

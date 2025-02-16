@@ -1,7 +1,7 @@
 import { cookies } from "next/headers";
 import { Pardner, Hitchin, Target, Relationship } from "@/app/lib/definitions";
 import { redirect } from "next/navigation";
-import { fetchPardner } from "@/app/lib/data";
+import { fetchPardner, newPardner } from "@/app/lib/data";
 
 var activePardner: Pardner;
 
@@ -11,7 +11,6 @@ export default async function Dashboard() {
     const inAuth = cookieStore.get("authToken");
 
     let p: Pardner[] = await fetchPardner();
-
     console.log(inAuth?.value);
 
     let validAuth: boolean = false;
@@ -24,10 +23,10 @@ export default async function Dashboard() {
     }
 
     if (!validAuth) {
-      redirect("/");
+      redirect("/login");
     }
   } catch (e) {
-    redirect("/");
+    redirect("/login");
   }
 
   return (

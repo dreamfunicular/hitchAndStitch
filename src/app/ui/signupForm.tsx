@@ -5,6 +5,7 @@
 import Link from "next/link";
 import { FormEvent } from "react";
 import { useState } from "react";
+import { redirect } from "next/navigation";
 
 export default function SignupForm() {
   const [username, setUsername] = useState("");
@@ -48,6 +49,16 @@ export default function SignupForm() {
     });
 
     const data = await res.json();
+
+    if (data.status == 200) {
+      console.log("Worked!");
+      document.cookie = "authToken=" + data.authToken;
+
+      redirect("/dashboard");
+    } else {
+      console.log("didn't work :(");
+      setWarningText("That account already exists.");
+    }
 
     console.log(data.status);
   }
@@ -98,9 +109,9 @@ export default function SignupForm() {
       </button>
       <p className="text-2">
         {" "}
-        Don't have an account?{" "}
-        <Link href="/signup">
-          <u> Sign up.</u>
+        Already have an account?{" "}
+        <Link href="/login">
+          <u> Sign in.</u>
         </Link>
       </p>
     </form>

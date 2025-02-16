@@ -7,9 +7,9 @@ export type Pardner = {
   id: number;
   username: string;
   password: string;
-  major: Majors;
-  activeRelationship: Relationship;
-  inactiveRelationships: Relationship[];
+  major?: Majors;
+  activeRelationship?: Relationship;
+  inactiveRelationships?: Relationship[];
   authtoken: string; //this is terrible and unsafe. oh well!
 };
 
